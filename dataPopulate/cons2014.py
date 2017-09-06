@@ -3,6 +3,8 @@ import json
 import os
 import sys
 
+# noob way of specifying full path , replace with your own
+
 FILENAME =  "/Users/lokeshrajarora/Documents/Projects/neta-analysis-minor-project/data/2014-electoral-rolls.csv"
 
 db=sqlite3.connect("db/cons2014.db")
