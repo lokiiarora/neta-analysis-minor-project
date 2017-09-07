@@ -16,6 +16,11 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(requestSanitizer.sanitize);
 app.use(express.static(path.join(__dirname, 'views','neta-analysis','build'), { maxAge: 31557600000 }));
+app.use((req,res,next)=> {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 app.get("/", (req,res)=> {
     res.sendFile(path.join(__dirname + "/views" +"/neta-analysis/"+"build/"+ "index.html"))
@@ -329,13 +334,3 @@ app.listen(app.get('port'), () => {
     console.log(' App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env')); 
     console.log('  Press CTRL-C to stop\n');
 });
-
-// db.all("select * from cons2014", (err,rows) => {
-//     if(err){
-//         console.log(err);
-//         return;
-//     }
-//     rows.forEach((row) => {
-//         console.log(row);
-//     })
-// })
