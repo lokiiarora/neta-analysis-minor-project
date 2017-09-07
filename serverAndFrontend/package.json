@@ -1,0 +1,28 @@
+{
+  "name": "neta-analysis",
+  "version": "0.0.1",
+  "description": "A minor project for college using data provided by Indian Elections for 2014",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "neta",
+    "election",
+    "india"
+  ],
+  "author": "Lokesh Raj Arora",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "flash": "^1.1.0",
+    "nodemon": "^1.12.0",
+    "npmlog": "^4.1.2",
+    "path": "^0.12.7",
+    "request": "^2.81.0",
+    "request-sanitizer": "0.0.6",
+    "sqlite3": "^3.1.9",
+    "underscore": "^1.8.3"
+  }
+}
