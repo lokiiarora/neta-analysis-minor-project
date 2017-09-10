@@ -12,7 +12,7 @@ const _ = require("underscore");
 app.use(bodyparser.json())
 app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
-app.use(bodyparser.json());
+// app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(requestSanitizer.sanitize);
 app.use(express.static(path.join(__dirname, 'views','neta-analysis','build'), { maxAge: 31557600000 }));

@@ -34,7 +34,7 @@ def createTables():
 
 
 with open(FILENAME,'rb') as File:
-    # check this first line
+    # chuck this first line
     first = File.readline().split(",")
     createTables()
     for datarow in File.readlines():

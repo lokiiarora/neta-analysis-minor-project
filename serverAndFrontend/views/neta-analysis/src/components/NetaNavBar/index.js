@@ -8,6 +8,10 @@ import 'semantic-ui-css/semantic.min.css';
 export class NetaNavBar extends Component{
     state = {activeItem:"home"};
 
+    componentDidMount = () => {
+        this.setState({activeItem:window.location.pathname.slice(1)})
+    }
+
     _onClick = (e, {name}) => this.setState({activeItem:name})
     
     render(){
