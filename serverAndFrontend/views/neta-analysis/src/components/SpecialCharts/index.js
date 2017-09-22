@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import _ from 'underscore';
 // import {Bar as BarChart} from 'react-chartjs';
+// import {actionSwitcher} from '../../utils/';
 
 
 class SpecialChart extends Component{
@@ -37,6 +38,9 @@ class SpecialChart extends Component{
         let dum = this.state.chartPayload;
         dum.data.datasets[0].data = this.props.payload;
         dum.data.datasets[0].label = "Male to Female Ratio";
+        console.log(this.props.payload);
+        console.log(this.props.controls);
+        // console.log(actionSwitcher(this.props.controls[0]))
         this.setState({chartPayload:dum});
     }
 
@@ -45,7 +49,7 @@ class SpecialChart extends Component{
             return null;
         }else{
             return (
-                <div />
+                <div >{this.props.payload}</div>
             );
         }
     }

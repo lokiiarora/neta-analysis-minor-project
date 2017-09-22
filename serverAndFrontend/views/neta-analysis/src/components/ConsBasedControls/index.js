@@ -58,11 +58,11 @@ export default class ConsBasedControls extends Component {
                 return qs.stringify(params)
             }
         }).then((res) => {
-            console.log("Res time is" + (Date.now() - dateIni));
+            // console.log("Res time is" + (Date.now() - dateIni));
             let pay = this.state.payload;
             pay[index] = res.data;
-            this.setState({loading:false, totalSelect:total,payload:pay});
-            console.log(res.data[0]);
+            this.setState({loading:false, totalSelect:total,payload:pay,chartsPayload:res.data});
+            // console.log(res.data[0]);
         }).catch((err) => {
             console.error(err);
         });
@@ -92,8 +92,10 @@ export default class ConsBasedControls extends Component {
                     }
                 }).then((res) => {
                     console.log("Res time is" + (Date.now() - dateIni));
+                    let pay = this.state.payload;
+                    pay[index] = res.data;
                     console.log(res.data);
-                    this.setState({loading:false,chartsPayload:res.data});
+                    this.setState({loading:false,payload:pay});
                 }).catch((err) => {
                     console.log(err);
                 })
@@ -172,7 +174,7 @@ export default class ConsBasedControls extends Component {
                     }
                 </Step.Group>
                 <SpecialSelect active={!this.state.totalSelect} index={index} summary={this.state.summary} payload={payload} onSelect={this._onChildrenSelect} />
-                <SpecialChart active={this.state.totalSelect} payload={this.state.chartsPayload} label={"Fuck all"} />
+                <SpecialChart controls={this.state.stepSelectedOptions} active={this.state.totalSelect} payload={this.state.chartsPayload} label={"Fuck all"} />
             </Segment> 
         );
     }

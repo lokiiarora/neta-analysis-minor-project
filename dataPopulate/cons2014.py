@@ -7,7 +7,7 @@ import sys
 
 FILENAME =  "/Users/lokeshrajarora/Documents/Projects/neta-analysis-minor-project/data/2014-electoral-rolls.csv"
 
-db=sqlite3.connect("db/cons2014.db")
+db=sqlite3.connect("../db/cons2014.db")
 iterator=db.cursor()
 # 6
 def filterData(row):
